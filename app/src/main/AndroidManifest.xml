@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.costurero.picolab.costureroviajero">
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MenuActivity"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".CosturerosActivity"
+            android:screenOrientation="landscape"></activity>
+        >
+        <activity
+            android:name=".AgregarCostureroActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".EncuentrosActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".GaleriaActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".EncuentroActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".AgregarFotoActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".AgregarVideoActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".AgregarEncuentroActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".ParicipantesActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".AgregarParticipanteActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".ProyectoActivity"
+            android:screenOrientation="landscape"></activity>
+    </application>
+
+</manifest>

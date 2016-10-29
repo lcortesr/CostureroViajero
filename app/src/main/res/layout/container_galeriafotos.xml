@@ -1,0 +1,122 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/galeriaEncuentro_ly">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <FrameLayout
+                android:layout_width="512dp"
+                android:layout_gravity="center"
+                android:layout_height="300dp">
+
+                <!-- This for video thumbnail-->
+
+                <ImageView
+                    android:layout_height="300dp"
+                    app:srcCompat="@drawable/foto_ejemplo"
+                    android:id="@+id/imagenIzquierda_img"
+                    android:layout_weight="1"
+                    android:layout_width="480dp"
+                    android:layout_gravity="center"
+                    android:visibility="invisible"/>
+
+                <VideoView
+                    android:layout_width="480dp"
+                    android:layout_height="300dp"
+                    android:layout_gravity="center"
+                    android:id="@+id/video_vidL"
+                    android:visibility="invisible"/>
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@android:drawable/ic_media_play"
+                    android:id="@+id/pIzquierdo_img"
+                    android:elevation="0dp"
+                    android:clickable="true" />
+                <!-- This for video icon in center-->
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/principalIzquierda_txt"
+                android:layout_weight="1"
+                android:textSize="24sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/secundariaIzquierda_txt"
+                android:layout_weight="1"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <FrameLayout
+                android:layout_width="512dp"
+                android:layout_gravity="center"
+                android:layout_height="300dp">
+
+                <!-- This for video thumbnail-->
+                <ImageView
+                    app:srcCompat="@drawable/foto_ejemplo"
+                    android:id="@+id/imagenDerecha_img"
+                    android:layout_weight="1"
+                    android:layout_height="300dp"
+                    android:layout_width="480dp"
+                    android:layout_gravity="center"
+                    android:visibility="invisible"/>
+
+                <VideoView
+                    android:layout_width="480dp"
+                    android:layout_height="300dp"
+                    android:layout_gravity="center"
+                    android:id="@+id/video_vidR"
+                    android:visibility="invisible"/>
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@android:drawable/ic_media_play"
+                    android:id="@+id/pDerecho_img"/>
+
+                <!-- This for video icon in center-->
+
+            </FrameLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/principalDerecha_txt"
+                android:layout_weight="1"
+                android:textSize="24sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/secundariaDerecha_txt"
+                android:layout_weight="1"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

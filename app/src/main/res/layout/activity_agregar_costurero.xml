@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_agregar_costurero"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.costurero.picolab.costureroviajero.AgregarCostureroActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/menuFotosVideos_ly"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+                android:text="@string/agregar_costurero"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tituloCostureros_txt"
+                android:textSize="36sp"
+                android:textAlignment="center"
+                android:textColorHint="@android:color/background_dark" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/nombreCosturero_inp"
+            android:layout_weight="1"
+            android:hint="¿Cuál es el nombre del colectivo al que llega el Costurero Viajero?"
+            android:textSize="20sp" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/municipioCosturero_inp"
+            android:layout_weight="1"
+            android:hint="¿A qué municipio o ciudad llega el Costurero Viajero?"
+            android:textSize="20sp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/lugarCosturero"
+            android:hint="¿En qué lugar se reúnen?"
+            android:textSize="20sp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:ems="10"
+            android:id="@+id/historiaCosturero_inp"
+            android:hint="¿Qué historia quieres contar del colectivo al que llega el Costurero Viajero?"
+            android:layout_marginBottom="100dp"
+            android:textSize="20sp" />
+
+        <Button
+            android:text="@string/crearCost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/crearCosturero_but"
+            android:layout_gravity="center_horizontal"
+            android:textSize="24sp"
+            android:onClick="crearCosturero" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/barraBaja_ly">
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:baselineAligned="?android:attr/windowActionBar"
+                android:fadeScrollbars="false"
+                android:gravity="bottom"
+            android:id="@+id/barraBot_ly">
+
+                <Button
+                    android:text="@string/menu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/botonMenu_but"
+                    android:layout_weight="1"
+                    android:textSize="18sp"
+                    android:onClick="abrirMenu" />
+
+                <Button
+                    android:text="@string/costureros_encuentros"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/botonCostureros_but"
+                    android:layout_weight="1"
+                    android:textSize="18sp"
+                    android:onClick="abrirCostureros" />
+
+            <Button
+                    android:text="@string/galeria"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/botonGalerias_but"
+                    android:layout_weight="1"
+                    android:textSize="18sp"
+                android:onClick="abrirGaleria" />
+
+            <Button
+                    android:text="@string/proyecto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/botonProy_but"
+                    android:layout_weight="1"
+                    android:textSize="18sp"
+                android:onClick="abrirInfo" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">Costurero Viajero</string>
+    <string name="costureros_encuentros">Visitas</string>
+    <string name="galeria">Galería</string>
+    <string name="proyecto">Sobre el proyecto</string>
+
+    <string name="costureros">Visitas</string>
+    <string name="menu">Menú</string>
+
+    <string name="agregar_costurero">Agregar visita del Costurero</string>
+    <string name="crearCost">Crear visita</string>
+
+    <string name="encuentros">Encuentros</string>
+    <string name="foto">Agregar fotografía</string>
+    <string name="video">Agregar video</string>
+
+    <string name="etiqueta1">Los momentos de nuestro encuentro</string>
+    <string name="etiqueta2">Lo que tejemos</string>
+    <string name="etiqueta3">Los materiales con que tejemos</string>
+    <string name="etiqueta4">Quiénes somos</string>
+
+    <string name="etiquetal1">¿Qué quieres contar sobre esta fotografía?</string>
+    <string name="etiquetal2">¿Qué quieres contar sobre este video?</string>
+
+    <string name="guardarF">Guardar y compartir</string>
+    <string name="eliminarF">Eliminar</string>
+
+    <string name="agregar_encuentro">Agregar Reunión</string>
+    <string name="crear_encuentro">Crear reunión</string>
+
+    <string name="participantes">Participantes</string>
+    <string name="agregar_participante">Agregar Participante</string>
+    <string name="hint_participante">Ingresa el nombre del (de la) participante</string>
+    <string name="sel_foto">Seleccionar</string>
+    <string name="tom_foto">Tomar</string>
+    <string name="crear_participante">Crear participante</string>
+
+    <string name="titulos_fotos">Fotos y videos</string>
+    <string name="sobre_proyecto">Sobre el Proyecto</string>
+
+
+</resources>
