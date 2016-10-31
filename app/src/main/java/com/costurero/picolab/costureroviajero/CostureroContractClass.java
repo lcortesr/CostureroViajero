@@ -12,6 +12,7 @@ public final class CostureroContractClass {
         public static final String _ID = "COS_id";
         public static final String localizacion="LOC_id";
         public static final String nombre="COS_nombre";
+        public static final String path="COS_path";
         public static final String historia="COS_historia";
         public static final String sincronizado="COS_sincronizado";
     }

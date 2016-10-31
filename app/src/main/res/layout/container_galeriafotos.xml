@@ -19,7 +19,8 @@
             <FrameLayout
                 android:layout_width="512dp"
                 android:layout_gravity="center"
-                android:layout_height="300dp">
+                android:layout_height="300dp"
+                android:background="@drawable/bg_menu">
 
                 <!-- This for video thumbnail-->
 
@@ -43,7 +44,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
-                    app:srcCompat="@android:drawable/ic_media_play"
+                    app:srcCompat="@drawable/play_ok"
                     android:id="@+id/pIzquierdo_img"
                     android:elevation="0dp"
                     android:clickable="true" />
@@ -73,7 +74,8 @@
             <FrameLayout
                 android:layout_width="512dp"
                 android:layout_gravity="center"
-                android:layout_height="300dp">
+                android:layout_height="300dp"
+                android:background="@drawable/bg_menu">
 
                 <!-- This for video thumbnail-->
                 <ImageView
@@ -96,7 +98,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
-                    app:srcCompat="@android:drawable/ic_media_play"
+                    app:srcCompat="@drawable/play_ok"
                     android:id="@+id/pDerecho_img"/>
 
                 <!-- This for video icon in center-->

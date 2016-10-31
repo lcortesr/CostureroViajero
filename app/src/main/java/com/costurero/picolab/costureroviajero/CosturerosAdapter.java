@@ -2,6 +2,7 @@ package com.costurero.picolab.costureroviajero;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -72,10 +73,14 @@ public class CosturerosAdapter extends RecyclerView.Adapter<CosturerosAdapter.Vi
             // Stores the itemView in a public final member variable that can be used
             // to access the context from any ViewHolder instance.
             super(itemView);
-
+            Typeface tituloF = Typeface.createFromAsset(contexto.getAssets(), "century-expanded-bold-bt.ttf");
+            Typeface cuerpoF = Typeface.createFromAsset(contexto.getAssets(), "century-expanded-regular.ttf");
             nameTextView = (TextView) itemView.findViewById(R.id.nombreCosturero_txt);
+            nameTextView.setTypeface(cuerpoF);
             munTextView = (TextView) itemView.findViewById(R.id.municipioCosturero_txt);
+            munTextView.setTypeface(cuerpoF);
             lugTextView = (TextView) itemView.findViewById(R.id.lugCosturero_txt);
+            lugTextView.setTypeface(cuerpoF);
             // Attach a click listener to the entire row view
             itemView.setOnClickListener(this);
 
@@ -87,6 +92,9 @@ public class CosturerosAdapter extends RecyclerView.Adapter<CosturerosAdapter.Vi
             Costurero costu = mConstureros.get(position);
             Intent intent = new Intent(contexto,EncuentrosActivity.class);
             intent.putExtra("ID_COSTURERO", ""+position);
+            intent.putExtra("MUNICIPIO_COSTURERO", ""+costu.getMunicipio());
+            intent.putExtra("LUGAR_COSTURERO", ""+costu.getLugar());
+            intent.putExtra("HISTORIA_COSTURERO", ""+costu.getHistoria());
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             contexto.startActivity(intent);
         }

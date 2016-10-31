@@ -2,12 +2,15 @@ package com.costurero.picolab.costureroviajero;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.TextView;
+
 import java.util.ArrayList;
 
 public class CosturerosActivity extends AppCompatActivity {//
@@ -15,6 +18,9 @@ public class CosturerosActivity extends AppCompatActivity {//
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_costureros);
+        Typeface tituloF = Typeface.createFromAsset(getAssets(), "century-expanded-bold-bt.ttf");
+        TextView titulo = (TextView)findViewById(R.id.tituloCostureros_txt);
+        titulo.setTypeface(tituloF);
     }
 
     @Override
@@ -30,6 +36,8 @@ public class CosturerosActivity extends AppCompatActivity {//
         while(lectura.moveToNext()){
             String name = lectura.getString(lectura.getColumnIndex(CostureroContractClass.CostureroEntry.nombre));
             String idLoc = lectura.getString(lectura.getColumnIndex(CostureroContractClass.CostureroEntry.localizacion));
+            String hist = lectura.getString(lectura.getColumnIndex(CostureroContractClass.CostureroEntry.historia));
+            String pathC = lectura.getString(lectura.getColumnIndex(CostureroContractClass.CostureroEntry.path));
             lecturaLoc.moveToFirst();
             lecturaLoc.moveToPrevious();
             while(lecturaLoc.moveToNext()){
@@ -39,7 +47,7 @@ public class CosturerosActivity extends AppCompatActivity {//
                     String locPlace = lecturaLoc.getString(lecturaLoc.getColumnIndex(LocalizacionContractClass.LocalizacionEntry.nombre));
                     float lat = lecturaLoc.getFloat(lecturaLoc.getColumnIndex(LocalizacionContractClass.LocalizacionEntry.latitud));
                     float lng = lecturaLoc.getFloat(lecturaLoc.getColumnIndex(LocalizacionContractClass.LocalizacionEntry.longitud));
-                    listaCostureros.add(new Costurero(name, locTown, locPlace, lat, lng));
+                    listaCostureros.add(new Costurero(name, locTown, locPlace, pathC, lat, lng, hist));
                 }
             }
         }

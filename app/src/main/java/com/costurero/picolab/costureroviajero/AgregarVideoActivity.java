@@ -69,7 +69,13 @@ public class AgregarVideoActivity extends AppCompatActivity {
         videoAgregado.setBackground(null);
         videoAgregado.start();
     }
-
+    public void cancelar(View view){
+        Intent intent = new Intent(this, EncuentroActivity.class);
+        intent.putExtra("ID_ENCUENTRO",idEnc);
+        intent.putExtra("NOMBRE_COSTURERO",nombreCosturero);
+        intent.putExtra("FECHA_ENCUENTRO",fechaEncuentro);
+        startActivity(intent);
+    }
     public void guardarVideo(View view){
         RadioGroup radioGroup=(RadioGroup) findViewById(R.id.etiquetasPrincipales_rg);
         int RB1_ID = 0;//first radio button id
@@ -79,7 +85,7 @@ public class AgregarVideoActivity extends AppCompatActivity {
         RadioButton rb1=(RadioButton) findViewById(R.id.etiquetaFija1_tog);
         RadioButton rb2=(RadioButton) findViewById(R.id.etiquetaFija2_tog);
         RadioButton rb3=(RadioButton) findViewById(R.id.etiquetaFija3_tog);
-        RadioButton rb4=(RadioButton) findViewById(R.id.etiquetaFija4_tog);
+        //RadioButton rb4=(RadioButton) findViewById(R.id.etiquetaFija4_tog);
         int s=0;
         if(rb1.isChecked())
             s=0;
@@ -87,15 +93,15 @@ public class AgregarVideoActivity extends AppCompatActivity {
             s=1;
         if(rb3.isChecked())
             s=2;
-        if(rb4.isChecked())
-            s=3;
+        //if(rb4.isChecked())
+          //  s=3;
         TextView etS1=(TextView) findViewById(R.id.historiaVideo_inp);
 
-        String[] etiquetasPrincipales=new String[4];
+        String[] etiquetasPrincipales=new String[3];
         etiquetasPrincipales[0]=getString(R.string.etiqueta1);
         etiquetasPrincipales[1]=getString(R.string.etiqueta2);
         etiquetasPrincipales[2]=getString(R.string.etiqueta3);
-        etiquetasPrincipales[3]=getString(R.string.etiqueta4);
+        //etiquetasPrincipales[3]=getString(R.string.etiqueta4);
         String secundarias=etS1.getText().toString();
         long enc=Long.parseLong(idEnc);
         long insersion=dbCosturero.insertFotoVideo(enc,etiquetasPrincipales[s],secundarias,pathVideo,1,0);

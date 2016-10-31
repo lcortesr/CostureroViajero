@@ -2,45 +2,35 @@ package com.costurero.picolab.costureroviajero;
 
 import android.content.Context;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Typeface;
-import android.media.Image;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
-import static android.provider.AlarmClock.EXTRA_MESSAGE;
-
 /**
- * Created by gapiedrahita on 12/04/2016.
+ * Created by PiCoLab on 2016-10-30.
  */
-// Create the basic adapter extending from RecyclerView.Adapter
-// Note that we specify the custom ViewHolder which gives us access to our views
-public class EncuentrosAdapter extends RecyclerView.Adapter<EncuentrosAdapter.ViewHolder> {
+
+public class ParticipantesAdapter extends RecyclerView.Adapter<ParticipantesAdapter.ViewHolder> {
 
     private LayoutInflater inflater;
-    private List<Encuentro> mEncuentros;
+    private List<Participante> mParticipantes;
     private Context contexto;
     private View generalView;
 
-    public EncuentrosAdapter(Context context, List<Encuentro> encs) {
-        mEncuentros = encs;
+    public ParticipantesAdapter(Context context, List<Participante> parts) {
+        mParticipantes = parts;
         inflater = LayoutInflater.from(context);
         contexto=context;
     }
 
     @Override
-    public EncuentrosAdapter .ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ParticipantesAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         //Context context = parent.getContext();
         //inflater = LayoutInflater.from(context);
         Log.println(Log.INFO,"Info", "Pos2");
@@ -51,20 +41,20 @@ public class EncuentrosAdapter extends RecyclerView.Adapter<EncuentrosAdapter.Vi
         return viewHolder;
     }
     @Override
-    public void onBindViewHolder(EncuentrosAdapter.ViewHolder viewHolder, int position) {
+    public void onBindViewHolder(ParticipantesAdapter.ViewHolder viewHolder, int position) {
         // Get the data model based on position
-        Encuentro encu = mEncuentros.get(position);
+        Participante parts= mParticipantes.get(position);
         Log.println(Log.INFO,"Info", "Pos 1");
 
         // Set item views based on the data model
         TextView fechaEnc = viewHolder.fechTextView;
-        fechaEnc.setText(encu.getFecha());
+        fechaEnc.setText(parts.getNombre());
         ImageView flecha=viewHolder.flechaImaView;
-        flecha.setImageResource(R.drawable.flecha);
+        flecha.setImageResource(R.drawable.ojo);
     }
     @Override
     public int getItemCount() {
-        return mEncuentros.size();
+        return mParticipantes.size();
     }
     // Provide a direct reference to each of the views within a data item
     // Used to cache the views within the item layout for fast access
@@ -73,7 +63,6 @@ public class EncuentrosAdapter extends RecyclerView.Adapter<EncuentrosAdapter.Vi
         // for any view that will be set as you render a row
         public TextView fechTextView;
         public ImageView flechaImaView;
-
         // We also create a constructor that accepts the entire item row
         // and does the view lookups to find each subview
         public ViewHolder(View itemView) {
@@ -82,9 +71,6 @@ public class EncuentrosAdapter extends RecyclerView.Adapter<EncuentrosAdapter.Vi
             super(itemView);
             fechTextView = (TextView) itemView.findViewById(R.id.fechaEncuentro_txt);
             flechaImaView= (ImageView) itemView.findViewById(R.id.imageView);
-
-            Typeface cuerpoF = Typeface.createFromAsset(contexto.getAssets(), "century-expanded-regular.ttf");
-            fechTextView.setTypeface(cuerpoF);
             // Attach a click listener to the entire row view
             itemView.setOnClickListener(this);
 
@@ -93,12 +79,12 @@ public class EncuentrosAdapter extends RecyclerView.Adapter<EncuentrosAdapter.Vi
         @Override
         public void onClick(View view) {
             int position = getLayoutPosition(); // gets item position
-            Encuentro encuent = mEncuentros.get(position);
-            Intent intent = new Intent(contexto,EncuentroActivity.class);
-            intent.putExtra("ID_ENCUENTRO", ""+encuent.getId());
-
-            intent.putExtra("FECHA_ENCUENTRO", ""+encuent.getFecha());
-            intent.putExtra("NOMBRE_COSTURERO", ""+encuent.getNombreCosturero());
+            Participante part = mParticipantes.get(position);
+            Intent intent = new Intent(contexto,ParicipantesActivity.class);
+            intent.putExtra("ID_PARTICIPANTE", ""+part.getId());
+            intent.putExtra("NOMBRE_PARTICIPANTE", ""+part.getNombre());
+            intent.putExtra("PATH_PARTICIPANTE", ""+part.getPath());
+            intent.putExtra("HISTORIA_PARTICIPANTE", ""+part.getHistoria());
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             contexto.startActivity(intent);
         }

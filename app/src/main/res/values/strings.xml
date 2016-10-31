@@ -14,6 +14,8 @@
     <string name="foto">Agregar fotografía</string>
     <string name="video">Agregar video</string>
 
+    <string name="hint_search">Ingresa la palabra o frase con la que quieres buscar fotos/videos relacionados</string>
+
     <string name="etiqueta1">Los momentos de nuestro encuentro</string>
     <string name="etiqueta2">Lo que tejemos</string>
     <string name="etiqueta3">Los materiales con que tejemos</string>
@@ -23,10 +25,10 @@
     <string name="etiquetal2">¿Qué quieres contar sobre este video?</string>
 
     <string name="guardarF">Guardar y compartir</string>
-    <string name="eliminarF">Eliminar</string>
+    <string name="eliminarF">Cancelar</string>
 
     <string name="agregar_encuentro">Agregar Reunión</string>
-    <string name="crear_encuentro">Crear reunión</string>
+    <string name="crear_encuentro">Crear encuentro</string>
 
     <string name="participantes">Participantes</string>
     <string name="agregar_participante">Agregar Participante</string>
@@ -38,5 +40,14 @@
     <string name="titulos_fotos">Fotos y videos</string>
     <string name="sobre_proyecto">Sobre el Proyecto</string>
 
+    <string name="tituloHistoriaCol">Historia del colectivo</string>
+    <string name="tituloMunicipioCol">Municipio - Ciudad</string>
+    <string name="tituloLugarCol">Lugar</string>
+
+    <string name="infoProyecto">
+        Este Costurero Viajero tiene la intención de hacer visibles relatos en torno a procesos de reconstrucción de memoria y reparación que han utilizado narrativas textiles como la costura, el bordado y el tejido. \n\n
+
+Ha sido creado por el Grupo de trabajo Tecnologías textiles, digitales y de memoria y por el colectivo Tejedoras por la Memoria de Sonsón. Este es un proyecto hecho con muchas manos, ganador de la Convocatoria de estímulos del Ministerio de Cultura, de la beca de investigación y producción de proyectos museográficos sobre memoria histórica y conflicto armado.
+    </string>
 
 </resources>

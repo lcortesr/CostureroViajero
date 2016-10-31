@@ -9,7 +9,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.costurero.picolab.costureroviajero.AgregarParticipanteActivity">
+    tools:context="com.costurero.picolab.costureroviajero.AgregarParticipanteActivity"
+    android:background="@drawable/bg">
     <LinearLayout
 
         android:orientation="vertical"
@@ -26,45 +27,34 @@
             android:id="@+id/tituloParticipantes_txt"
             android:textSize="36sp"
             android:textAlignment="center"
-            android:textColorHint="@android:color/background_dark" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/nombreParticipante_inp"
-            android:hint="@string/hint_participante" />
+            android:textColorHint="@android:color/background_dark"
+            android:textColor="@color/color_b" />
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/fotoParticipante_ly">
+            android:layout_height="match_parent">
 
-            <TextView
-                android:text="Fotografía (Opcional)"
-                android:layout_width="wrap_content"
+            <EditText
+                android:layout_width="718dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/fotoParticipante_lbl"
-                android:layout_weight="1"
-                android:textSize="18sp" />
+                android:inputType="text|textPersonName|textCapWords"
+                android:ems="10"
+                android:id="@+id/nombreParticipante_inp"
+                android:hint="@string/hint_participante"
+                android:clickable="false"
+                android:nextFocusDown="@id/historiaParticipante_mul" />
 
             <Button
-                android:text="@string/sel_foto"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/seleccionarFoto_but"
-                android:layout_weight="2"
-                android:layout_marginLeft="0dp" />
-
-            <Button
-                android:text="@string/tom_foto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tomarFoto_but"
-                android:layout_weight="2"
-                android:layout_marginRight="400dp" />
+                android:layout_marginRight="0dp"
+                android:onClick="toma_foto"
+                android:background="@drawable/tomr_foto"
+                android:layout_marginBottom="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_weight="1" />
 
         </LinearLayout>
 
@@ -76,32 +66,40 @@
             android:layout_marginBottom="90dp">
 
             <ImageView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/foto_ejemplo"
                 android:id="@+id/fotoParticipante_img"
                 android:layout_weight="1"
-                android:layout_marginBottom="0dp" />
+                android:layout_marginBottom="0dp"
+                android:layout_gravity="left" />
 
-            <EditText
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:inputType="textMultiLine"
-                android:ems="10"
-                android:id="@+id/historiaParticipante_mul"
                 android:layout_weight="1"
-                android:layout_marginBottom="0dp"
-                android:hint="Historia"
-                android:gravity="top"
-                android:focusableInTouchMode="false" />
+                android:weightSum="1">
 
-            <Button
-                android:text="@string/crear_participante"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/crearParticipante_but"
-                android:layout_weight="1.5"
-                android:layout_gravity="center_vertical" />
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="192dp"
+                    android:inputType="textMultiLine|textCapSentences"
+                    android:ems="10"
+                    android:id="@+id/historiaParticipante_mul"
+                    android:hint="Historia"
+                    android:gravity="top"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/crearParticipante_but"
+                    android:layout_gravity="center_vertical|center"
+                    android:onClick="crearParticipante"
+                    android:background="@drawable/crear" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -111,7 +109,9 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/barraBaja_ly">
+        android:id="@+id/barraBaja_ly"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
 
         <LinearLayout
             android:orientation="horizontal"
@@ -124,40 +124,40 @@
             android:id="@+id/barraBot_ly">
 
             <Button
-                android:text="@string/menu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/botonMenu_but"
                 android:layout_weight="1"
                 android:textSize="18sp"
-                android:onClick="abrirMenu" />
+                android:onClick="abrirMenu"
+                android:background="@drawable/menu_a" />
 
             <Button
-                android:text="@string/costureros_encuentros"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/botonCostureros_but"
                 android:layout_weight="1"
                 android:textSize="18sp"
-                android:onClick="abrirCostureros" />
+                android:onClick="abrirCostureros"
+                android:background="@drawable/menu_c" />
 
             <Button
-                android:text="@string/galeria"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/botonGalerias_but"
                 android:layout_weight="1"
                 android:textSize="18sp"
-                android:onClick="abrirGaleria" />
+                android:onClick="abrirGaleria"
+                android:background="@drawable/menu_b" />
 
             <Button
-                android:text="@string/proyecto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/botonProy_but"
                 android:layout_weight="1"
                 android:textSize="18sp"
-                android:onClick="abrirInfo (AgregarParticipanteActivity)" />
+                android:onClick="abrirInfo"
+                android:background="@drawable/menu_d" />
 
         </LinearLayout>
     </LinearLayout>

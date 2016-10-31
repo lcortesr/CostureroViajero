@@ -10,7 +10,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.costurero.picolab.costureroviajero.MenuActivity"
-    android:background="@android:color/background_light">
+    android:background="@drawable/bg_menu">
 
     <LinearLayout
         android:orientation="vertical"
@@ -20,94 +20,106 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true">
 
-        <TextView
-            android:text="@string/app_name"
-            android:layout_width="match_parent"
-            android:layout_height="89dp"
-            android:id="@+id/tituloMenu_txt"
-            android:textSize="36sp"
-            android:textAlignment="center" />
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="99dp"
-            android:id="@+id/botonesMenu_ly">
+            android:layout_height="wrap_content">
 
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:srcCompat="@drawable/costura_aux"
-                android:id="@+id/iconoCostureros_img"
-                android:layout_weight="1"
-                android:layout_gravity="right"
-                android:layout_marginLeft="200dp"
-                android:onClick="abrirCostureros" />
-
-            <TextView
-                android:text="@string/costureros_encuentros"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/costureros_text"
-                android:layout_weight="1"
-                android:gravity="center_vertical|left"
-                android:textSize="24sp"
-                android:onClick="abrirCostureros" />
+                android:layout_width="473dp"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/titulo"
+                android:id="@+id/tituloCosturero_img"
+                android:layout_weight="1" />
         </LinearLayout>
+
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="94dp"
-            android:id="@+id/botonesMenu2_ly">
+            android:layout_height="wrap_content">
 
-            <ImageView
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:srcCompat="@drawable/icono_galeria"
-                android:id="@+id/iconoGaleria_img"
-                android:layout_weight="1"
-                android:layout_gravity="right"
-                android:layout_marginLeft="200dp"
-                android:clickable="true"
-                android:onClick="abrirGaleria" />
+                android:layout_weight="1">
 
-            <TextView
-                android:text="@string/galeria"
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/icono_visita"
+                    android:id="@+id/imageView5"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:onClick="abrirCostureros" />
+
+                <TextView
+                    android:text="@string/costureros"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/galeria_text"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:textSize="24sp"
+                    android:textColorLink="@color/color_f"
+                    android:textColor="@color/color_b"
+                    android:onClick="abrirCostureros" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/galeria_text"
-                android:layout_weight="1"
-                android:gravity="center_vertical|left"
-                android:textSize="24sp"
-                android:clickable="true"
-                android:onClick="abrirGaleria" />
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="99dp"
-            android:id="@+id/botonesMenu3_ly">
+                android:layout_weight="1">
 
-            <ImageView
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/icono_menu"
+                    android:id="@+id/imageView4"
+                    android:layout_weight="1"
+                    android:onClick="abrirGaleria" />
+
+                <TextView
+                    android:text="@string/galeria"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/costureros_text"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:textSize="24sp"
+                    android:textColor="@color/color_c"
+                    android:onClick="abrirGaleria" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:srcCompat="@drawable/about"
-                android:id="@+id/iconoProyecto_img"
-                android:layout_weight="1"
-                android:layout_gravity="right"
-                android:layout_marginLeft="200dp"
-                android:clickable="true"
-                android:onClick="abrirInfo" />
+                android:layout_weight="1">
 
-            <TextView
-                android:text="@string/proyecto"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/proyecto_text"
-                android:layout_weight="1"
-                android:gravity="center_vertical|left"
-                android:textSize="24sp"
-                android:clickable="true"
-                android:onClick="abrirInfo" />
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/icono_info"
+                    android:id="@+id/imageView6"
+                    android:layout_weight="1"
+                    android:onClick="abrirInfo" />
+
+                <TextView
+                    android:text="@string/sobre_proyecto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/proyecto_text"
+                    android:layout_weight="1"
+                    android:textSize="24sp"
+                    android:textAlignment="center"
+                    android:textColor="@color/color_a"
+                    android:onClick="abrirInfo" />
+
+            </LinearLayout>
+
         </LinearLayout>
 
         <LinearLayout
@@ -115,15 +127,62 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/logosMenu_ly"
-            android:baselineAligned="false">
+            android:baselineAligned="false"
+            android:weightSum="1">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="67dp"
-                app:srcCompat="@drawable/logos_borrador"
-                android:id="@+id/logo3_img"
-                android:layout_weight="1.00"
-                android:layout_marginTop="30dp" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.55">
+
+                    <TextView
+                        android:text="Sincronizar   "
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/textView2"
+                        android:layout_weight="0.55"
+                        android:textAlignment="gravity"
+                        android:gravity="right|center"
+                        android:textSize="20sp"
+                        android:textColor="@color/color_c"
+                        android:fontFamily="sans-serif"
+                        android:onClick="sincronizar" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        app:srcCompat="@drawable/sync"
+                        android:id="@+id/imageView9"
+                        android:layout_weight="0.8"
+                        android:foregroundGravity="right"
+                        android:layout_height="50dp"
+                        android:onClick="sincronizar" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.55">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/logos_t"
+                        android:id="@+id/imageView8"
+                        android:layout_gravity="bottom"
+                        android:foregroundGravity="bottom"
+                        android:layout_weight="1" />
+                </LinearLayout>
+
+            </LinearLayout>
+
         </LinearLayout>
 
         <Space
@@ -132,4 +191,5 @@
             android:layout_weight="2" />
 
     </LinearLayout>
+
 </RelativeLayout>

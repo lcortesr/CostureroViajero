@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
@@ -76,6 +77,7 @@ public class FotoVideoAdapter extends RecyclerView.Adapter<FotoVideoAdapter.View
             videoI.setVisibility(View.INVISIBLE);
             fotoI.setVisibility(View.VISIBLE);
             fotoI.setImageBitmap(bitmap);
+            viewHolder.playIzquierdo.setVisibility(View.INVISIBLE);
         }
         else {
             Bitmap bitmapV = ThumbnailUtils.createVideoThumbnail(fotoV.getPath(), MediaStore.Images.Thumbnails.MINI_KIND);
@@ -84,32 +86,41 @@ public class FotoVideoAdapter extends RecyclerView.Adapter<FotoVideoAdapter.View
             videoI.setVideoPath(fotoV.getPath());
             videoI.setVisibility(View.VISIBLE);
             fotoI.setVisibility(View.INVISIBLE);
-            viewHolder.playIzquierdo.setImageResource(R.drawable.play);
+            viewHolder.playIzquierdo.setImageResource(R.drawable.play_ok);
+            viewHolder.playIzquierdo.setVisibility(View.VISIBLE);
         }
         TextView ppalI = viewHolder.ppalIzquierda;
         TextView secI = viewHolder.secIzquierda;
         ppalI.setText(fotoV.getEtiquetaP());
         secI.setText(fotoV.getEtiquetaS());
+        Typeface cuerpoF = Typeface.createFromAsset(contexto.getAssets(), "century-expanded-regular.ttf");
+        ppalI.setTypeface(cuerpoF);
+        secI.setTypeface(cuerpoF);
+        ImageView fotoD = viewHolder.imagenDerecha;
+        VideoView videoD = viewHolder.videoDerecho;
         if (!fotoV.getPathD().equals("NULL")) {
-            ImageView fotoD = viewHolder.imagenDerecha;
-            VideoView videoD = viewHolder.videoDerecho;
-            bmOptions = new BitmapFactory.Options();
-            bmOptions.inJustDecodeBounds = true;
+            BitmapFactory.Options bmOptionsD = new BitmapFactory.Options();
+            bmOptionsD.inJustDecodeBounds = true;
             BitmapFactory.decodeFile(fotoV.getPathD(), bmOptions);
-            photoW = bmOptions.outWidth;
-            photoH = bmOptions.outHeight;
+            int photoWD = bmOptionsD.outWidth;
+            int photoHD = bmOptionsD.outHeight;
 
-            // Determine how much to scale down the image
-            scaleFactor = Math.min(photoW / 800, photoH / 400);
+            // Determine how much to scale down the ima/*ge
+            int scaleFactorD = Math.min(photoWD / 800, photoHD / 400);
 
             // Decode the image file into a Bitmap sized to fill the View
-            bmOptions.inJustDecodeBounds = false;
-            bmOptions.inSampleSize = scaleFactor;
-            bmOptions.inPurgeable = true;
+            bmOptionsD.inJustDecodeBounds = false;
+            bmOptionsD.inSampleSize = scaleFactor;
+            bmOptionsD.inPurgeable = true;
+            bmOptionsD = new BitmapFactory.Options();
+            bmOptionsD.inJustDecodeBounds = true;
+            BitmapFactory.decodeFile(fotoV.getPathD(), bmOptions);
+
             if(fotoV.getTipoD()==0) {
                 Bitmap bitmapD = BitmapFactory.decodeFile(fotoV.getPathD(), bmOptions);
                 videoD.setVisibility(View.INVISIBLE);
                 fotoD.setVisibility(View.VISIBLE);
+                viewHolder.playDerecho.setVisibility(View.INVISIBLE);
                 fotoD.setImageBitmap(bitmapD);
             }
             else {
@@ -119,12 +130,24 @@ public class FotoVideoAdapter extends RecyclerView.Adapter<FotoVideoAdapter.View
                 videoD.setVideoPath(fotoV.getPathD());
                 videoD.setVisibility(View.VISIBLE);
                 fotoD.setVisibility(View.INVISIBLE);
-                viewHolder.playDerecho.setImageResource(R.drawable.play);
+                viewHolder.playDerecho.setImageResource(R.drawable.play_ok);
+                viewHolder.playDerecho.setVisibility(View.VISIBLE);
             }
             TextView ppalD = viewHolder.ppalDerecha;
             TextView secD = viewHolder.secDerecha;
             ppalD.setText(fotoV.getEtiquetaPD());
             secD.setText(fotoV.getEtiquetaSD());
+            ppalD.setTypeface(cuerpoF);
+            secD.setTypeface(cuerpoF);
+        }
+        else{
+            fotoD.setVisibility(View.INVISIBLE);
+            videoD.setVisibility(View.INVISIBLE);
+            TextView ppalD = viewHolder.ppalDerecha;
+            ppalD.setVisibility(View.INVISIBLE);
+            TextView secD = viewHolder.secDerecha;
+            secD.setVisibility(View.INVISIBLE);
+
         }
     }
     @Override

@@ -12,10 +12,13 @@
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textSize="24sp"
+        android:textSize="26sp"
         android:textStyle="normal|bold"
         android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp" />
+        android:layout_marginBottom="5dp"
+        android:textAlignment="center"
+        android:textColor="@color/color_c"
+        android:fontFamily="sans-serif" />
 
     <TextView
         android:id="@+id/municipioCosturero_txt"
@@ -23,10 +26,12 @@
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textSize="24sp"
+        android:textSize="26sp"
         android:textStyle="normal|bold"
         android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp" />
+        android:layout_marginBottom="5dp"
+        android:textAlignment="center"
+        android:textColor="@color/color_c" />
 
     <TextView
         android:id="@+id/lugCosturero_txt"
@@ -34,8 +39,10 @@
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textSize="24sp"
+        android:textSize="26sp"
         android:textStyle="normal|bold"
         android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp" />
+        android:layout_marginBottom="5dp"
+        android:textAlignment="center"
+        android:textColor="@color/color_c" />
 </LinearLayout>

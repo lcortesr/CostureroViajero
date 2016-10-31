@@ -11,13 +11,13 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.costurero.picolab.costureroviajero.CosturerosActivity"
-    >
+    android:background="@drawable/bg">
 
     <LinearLayout
 
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="373dp"
         android:id="@+id/menuFotosVideos_ly"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true">
@@ -29,68 +29,14 @@
             android:id="@+id/tituloCostureros_txt"
             android:textSize="36sp"
             android:textAlignment="center"
-            android:textColorHint="@android:color/background_dark" />
+            android:textColorHint="@android:color/background_dark"
+            android:textColor="@color/color_b" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rexyclerCosturero_lst"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-
-        <ImageView
-            android:layout_width="match_parent"
-            app:srcCompat="@drawable/agregar_rosa"
-            android:id="@+id/agregarCost_img"
-            android:layout_height="67dp"
-            android:clickable="true"
-            android:onClick="abrirNuevoCosturero"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true" />
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fadeScrollbars="false"
-            android:id="@+id/barraBot_ly">
-
-            <Button
-                android:text="@string/menu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/botonMenu_but"
-                android:layout_weight="1"
-                android:textSize="18sp"
-                android:onClick="abrirMenu" />
-
-            <Button
-                android:text="@string/costureros_encuentros"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/botonCostureros_but"
-                android:layout_weight="1"
-                android:textSize="18sp"
-                android:enabled="false" />
-
-            <Button
-                android:text="@string/galeria"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/botonGalerias_but"
-                android:layout_weight="1"
-                android:textSize="18sp"
-                android:onClick="abrirGaleria" />
-
-            <Button
-                android:text="@string/proyecto"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/botonProy_but"
-                android:layout_weight="1"
-                android:textSize="18sp"
-                android:onClick="abrirInfo" />
-
-        </LinearLayout>
 
         <!--<ListView
             android:layout_width="match_parent"
@@ -99,14 +45,74 @@
     </LinearLayout>
 
 
+    <ImageView
+        android:layout_width="96dp"
+        app:srcCompat="@drawable/agregar_viaje"
+        android:id="@+id/agregarCost_img"
+        android:layout_height="67dp"
+        android:clickable="true"
+        android:onClick="abrirNuevoCosturero"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="right"
+        android:textAlignment="gravity"
+        android:foregroundGravity="right"
+        android:paddingBottom="0dp" />
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:id="@+id/barraBaja_ly"
         android:baselineAligned="false"
         tools:baselineAligned="false">
 
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fadeScrollbars="false"
+            android:id="@+id/barraBot_ly"
+            android:layout_gravity="bottom"
+            android:gravity="bottom">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/botonMenu_but"
+                android:layout_weight="1"
+                android:textSize="18sp"
+                android:onClick="abrirMenu"
+                android:background="@drawable/menu_a" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/botonCostureros_but"
+                android:layout_weight="1"
+                android:textSize="18sp"
+                android:enabled="false"
+                android:background="@drawable/menu_c" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/botonGalerias_but"
+                android:layout_weight="1"
+                android:textSize="18sp"
+                android:onClick="abrirGaleria"
+                android:background="@drawable/menu_b" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/botonProy_but"
+                android:layout_weight="1"
+                android:textSize="18sp"
+                android:onClick="abrirInfo"
+                android:background="@drawable/menu_d" />
+
+        </LinearLayout>
     </LinearLayout>
 
 

@@ -61,12 +61,6 @@
                     android:id="@+id/etiquetaFija3_tog"
                     android:layout_weight="1" />
 
-                <RadioButton
-                    android:text="@string/etiqueta4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/etiquetaFija4_tog"
-                    android:layout_weight="1" />
             </RadioGroup>
 
         </LinearLayout>
@@ -125,7 +119,7 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textMultiLine"
+                    android:inputType="textMultiLine|textCapSentences"
                     android:ems="10"
                     android:id="@+id/historiaVideo_inp"
                     android:hint="@string/etiquetal2"
@@ -143,7 +137,8 @@
                     android:text="@string/eliminarF"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/eliminarFoto_but" />
+                    android:id="@+id/eliminarFoto_but"
+                    android:onClick="cancelar" />
             </LinearLayout>
         </LinearLayout>
 
@@ -166,40 +161,40 @@
             android:id="@+id/barraBot_ly">
 
             <Button
-                android:text="@string/menu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/botonMenu_but"
                 android:layout_weight="1"
                 android:textSize="18sp"
-                android:onClick="abrirMenu" />
+                android:onClick="abrirMenu"
+                android:background="@drawable/menu_a" />
 
             <Button
-                android:text="@string/costureros_encuentros"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/botonCostureros_but"
                 android:layout_weight="1"
                 android:textSize="18sp"
-                android:onClick="abrirCostureros" />
+                android:onClick="abrirCostureros"
+                android:background="@drawable/menu_b" />
 
             <Button
-                android:text="@string/galeria"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/botonGalerias_but"
                 android:layout_weight="1"
                 android:textSize="18sp"
-                android:onClick="abrirGaleria" />
+                android:onClick="abrirGaleria"
+                android:background="@drawable/menu_c" />
 
             <Button
-                android:text="@string/proyecto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/botonProy_but"
                 android:layout_weight="1"
                 android:textSize="18sp"
-                android:onClick="abrirInfo (AgregarVideoActivity)" />
+                android:onClick="abrirInfo (AgregarVideoActivity)"
+                android:background="@drawable/menu_d" />
 
         </LinearLayout>
     </LinearLayout>

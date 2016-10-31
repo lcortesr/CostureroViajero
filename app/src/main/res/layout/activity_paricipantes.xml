@@ -9,15 +9,17 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.costurero.picolab.costureroviajero.ParicipantesActivity">
+    tools:context="com.costurero.picolab.costureroviajero.ParicipantesActivity"
+    android:background="@drawable/bg_menu">
     <LinearLayout
 
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:id="@+id/menuFotosVideos_ly"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/barraBot_ly">
 
         <TextView
             android:text="@string/participantes"
@@ -26,78 +28,84 @@
             android:id="@+id/tituloParticipantes_txt"
             android:textSize="36sp"
             android:textAlignment="center"
-            android:textColorHint="@android:color/background_dark" />
-
-        <GridView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/grillaParticipantes_gr" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/barraBaja_ly">
+            android:textColorHint="@android:color/background_dark"
+            android:textColor="@color/color_b"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:baselineAligned="?android:attr/windowActionBar"
-            android:fadeScrollbars="false"
-            android:gravity="bottom"
-            android:layout_weight="1"
-            android:id="@+id/barraBot_ly">
+            android:layout_height="match_parent">
 
-            <Button
-                android:text="@string/menu"
+            <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/botonMenu_but"
-                android:layout_weight="1"
-                android:textSize="18sp"
-                android:onClick="abrirMenu" />
+                app:srcCompat="@drawable/foto_ejemplo"
+                android:id="@+id/imgParticipante_img"
+                android:layout_weight="1" />
 
-            <Button
-                android:text="@string/costureros_encuentros"
+            <TextView
+                android:text="TextView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/botonCostureros_but"
+                android:layout_height="match_parent"
+                android:id="@+id/histParticipante_txt"
                 android:layout_weight="1"
-                android:textSize="18sp"
-                android:onClick="abrirCostureros" />
-
-            <Button
-                android:text="@string/galeria"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/botonGalerias_but"
-                android:layout_weight="1"
-                android:textSize="18sp"
-                android:onClick="abrirGaleria" />
-
-            <Button
-                android:text="@string/proyecto"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/botonProy_but"
-                android:layout_weight="1"
-                android:textSize="18sp"
-                android:onClick="abrirInfo" />
-
+                android:gravity="center_vertical|center"
+                android:textSize="24sp"
+                android:textColor="@color/color_c"
+                android:textStyle="italic"
+                android:lineSpacingExtra="8sp" />
         </LinearLayout>
+
     </LinearLayout>
 
-    <ImageView
-        android:layout_width="67dp"
-        android:id="@+id/agregarCost3_img"
-        android:layout_height="67dp"
-        android:clickable="true"
-        android:onClick="agregarNuevoParticipante"
-        app:srcCompat="@drawable/agregar_rosa"
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="?android:attr/windowActionBar"
+        android:fadeScrollbars="false"
+        android:gravity="bottom"
+        android:layout_weight="1"
+        android:id="@+id/barraBot_ly"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="47dp" />
+        android:layout_alignParentStart="true">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/botonMenu_but"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:onClick="abrirMenu"
+            android:background="@drawable/menu_a" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/botonCostureros_but"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:onClick="abrirCostureros"
+            android:background="@drawable/menu_c" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/botonGalerias_but"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:onClick="abrirGaleria"
+            android:background="@drawable/menu_b" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/botonProy_but"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:onClick="abrirInfo"
+            android:background="@drawable/menu_d" />
+
+    </LinearLayout>
 </RelativeLayout>

@@ -110,4 +110,19 @@
     <item name="pIzuierdo_img" type="id">pIzuierdo_img</item>
     <item name="botonBuscar_btn" type="id">botonBuscar_btn</item>
     <item name="galeriaEncuentro_ly" type="id">galeriaEncuentro_ly</item>
+    <item name="nombreMun_txt" type="id">nombreMun_txt</item>
+    <item name="nombreLug_txt" type="id">nombreLug_txt</item>
+    <item name="historiaCol_txt" type="id">historiaCol_txt</item>
+    <item name="histParticipante_txt" type="id">histParticipante_txt</item>
+    <item name="imgParticipante_img" type="id">imgParticipante_img</item>
+    <item name="tituloCosturero_img" type="id">tituloCosturero_img</item>
+    <item name="titMunicipio_txt" type="id">titMunicipio_txt</item>
+    <item name="titLugar_txt" type="id">titLugar_txt</item>
+    <item name="titHistoria_txt" type="id">titHistoria_txt</item>
+    <item name="encuentros_txt" type="id">encuentros_txt</item>
+    <item name="participantes_txt" type="id">participantes_txt</item>
+    <item name="tipEncuentro_txt" type="id">tipEncuentro_txt</item>
+    <item name="tipParticipante_txt" type="id">tipParticipante_txt</item>
+    <item name="tomar_foto_cost" type="id">tomar_foto_cost</item>
+    <item name="ver_foto_costurero" type="id">ver_foto_costurero</item>
 </resources>

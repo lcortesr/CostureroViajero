@@ -49,6 +49,7 @@ public class CostDbHelper extends SQLiteOpenHelper {
                 + CostureroContractClass.CostureroEntry.nombre + " TEXT NOT NULL,"
                 + CostureroContractClass.CostureroEntry.localizacion + " INTEGER NOT NULL,"
                 + CostureroContractClass.CostureroEntry.historia + " TEXT,"
+                + CostureroContractClass.CostureroEntry.path + " TEXT,"
                 + CostureroContractClass.CostureroEntry.sincronizado + " INTEGER,"
                 + "UNIQUE (" + CostureroContractClass.CostureroEntry._ID + "))");
         sqLiteDatabase.execSQL("CREATE TABLE " + EncuentroContractClass.EncuentroEntry.TABLE_NAME + " ("
@@ -69,13 +70,12 @@ public class CostDbHelper extends SQLiteOpenHelper {
                 + "UNIQUE (" + FotoVideoContractClass.FotoVideoEntry._ID + "))");
         sqLiteDatabase.execSQL("CREATE TABLE " + ParticipanteContractClass.ParticipanteEntry.TABLE_NAME + " ("
                 + ParticipanteContractClass.ParticipanteEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-                + ParticipanteContractClass.ParticipanteEntry.id + " INTEGER NOT NULL,"
                 + ParticipanteContractClass.ParticipanteEntry.costurero + " INTEGER NOT NULL,"
                 + ParticipanteContractClass.ParticipanteEntry.nombre + " TEXT NOT NULL,"
                 + ParticipanteContractClass.ParticipanteEntry.historia + " TEXT,"
-                + ParticipanteContractClass.ParticipanteEntry.path + " TEXT NOT NULL,"
+                + ParticipanteContractClass.ParticipanteEntry.path + " TEXT,"
                 + ParticipanteContractClass.ParticipanteEntry.sincronizado + " INTEGER,"
-                + "UNIQUE (" + ParticipanteContractClass.ParticipanteEntry.id + "))");
+                + "UNIQUE (" + ParticipanteContractClass.ParticipanteEntry._ID + "))");
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -101,12 +101,22 @@ public class CostDbHelper extends SQLiteOpenHelper {
         return sqLiteDatabaseP.insert(FotoVideoContractClass.FotoVideoEntry.TABLE_NAME, null, values);
     }
 
-    public long insertCosturero(String nom, long idL, String hist){
+    public long insertCosturero(String nom, long idL, String hist, String path){
         ContentValues values = new ContentValues();
         values.put(CostureroContractClass.CostureroEntry.nombre,nom);
         values.put(CostureroContractClass.CostureroEntry.localizacion,idL);
         values.put(CostureroContractClass.CostureroEntry.historia,hist);
+        values.put(CostureroContractClass.CostureroEntry.path,path);
         return sqLiteDatabaseP.insert(CostureroContractClass.CostureroEntry.TABLE_NAME, null, values);
+    }
+
+    public long insertParticipante(String nom, String hist, String path, long idC){
+        ContentValues values = new ContentValues();
+        values.put(ParticipanteContractClass.ParticipanteEntry.costurero,idC);
+        values.put(ParticipanteContractClass.ParticipanteEntry.nombre,nom);
+        values.put(ParticipanteContractClass.ParticipanteEntry.historia, hist);
+        values.put(ParticipanteContractClass.ParticipanteEntry.path,path);
+        return sqLiteDatabaseP.insert(ParticipanteContractClass.ParticipanteEntry.TABLE_NAME, null, values);
     }
 
     public long insertEncuentro(String dat, long idC){
@@ -160,6 +170,18 @@ public class CostDbHelper extends SQLiteOpenHelper {
     public Cursor readEncuentro(){
         Cursor c=sqLiteDatabaseP.query(
                 EncuentroContractClass.EncuentroEntry.TABLE_NAME,  // Nombre de la tabla
+                null,  // Lista de Columnas a consultar
+                null,  // Columnas para la cláusula WHERE
+                null,  // Valores a comparar con las columnas del WHERE
+                null,  // Agrupar con GROUP BY
+                null,  // Condición HAVING para GROUP BY
+                null  // Cláusula ORDER BY
+        );
+        return c;
+    }
+    public Cursor readParticipante(){
+        Cursor c=sqLiteDatabaseP.query(
+                ParticipanteContractClass.ParticipanteEntry.TABLE_NAME,  // Nombre de la tabla
                 null,  // Lista de Columnas a consultar
                 null,  // Columnas para la cláusula WHERE
                 null,  // Valores a comparar con las columnas del WHERE

@@ -9,7 +9,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.costurero.picolab.costureroviajero.EncuentrosActivity">
+    tools:context="com.costurero.picolab.costureroviajero.EncuentrosActivity"
+    android:background="@drawable/bg">
     <LinearLayout
 
         android:orientation="vertical"
@@ -24,23 +25,191 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/tituloEncuentros_txt"
-            android:textSize="36sp"
+            android:textSize="30sp"
             android:textAlignment="center"
-            android:textColorHint="@android:color/background_dark" />
+            android:textColorHint="@android:color/background_dark"
+            android:textColor="@color/color_b" />
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerEncuentros_lst"
-            android:orientation="vertical"
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="455dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:text="@string/tituloMunicipioCol"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/titMunicipio_txt"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:textColor="@color/color_c" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/nombreMun_txt"
+                    android:textSize="21sp"
+                    android:textColor="@color/color_d" />
+
+                <TextView
+                    android:text="@string/tituloLugarCol"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/titLugar_txt"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/color_c" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/nombreLug_txt"
+                    android:textSize="21sp"
+                    android:textColor="@color/color_d" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="517dp"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:text="@string/tituloHistoriaCol"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/titHistoria_txt"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:textColor="@color/color_c" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/historiaCol_txt"
+                    android:textSize="21sp"
+                    android:scrollbarAlwaysDrawVerticalTrack="false"
+                    android:scrollbars="vertical"
+                    android:textColor="@color/color_d" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="3dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="451dp"
+                android:layout_height="300dp">
+
+                <TextView
+                    android:text="@string/encuentros"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/encuentros_txt"
+                    android:textSize="24sp"
+                    android:gravity="center_vertical|center"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center"
+                    android:textColor="@color/color_b" />
+
+                <TextView
+                    android:text="Escoge el día de hoy para agregar el registro fotográfico del encuentro."
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tipEncuentro_txt"
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    android:textStyle="normal|italic"
+                    android:textColor="@color/color_a"
+                    android:lineSpacingExtra="8sp" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerEncuentros_lst"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="3dp"
+                    android:layout_height="140dp">
+
+                </android.support.v7.widget.RecyclerView>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:id="@+id/agregarCost2_img"
+                    android:layout_alignBottom="@+id/menuFotosVideos_ly"
+                    android:layout_alignParentEnd="true"
+                    android:layout_height="67dp"
+                    android:clickable="true"
+                    android:onClick="agregarNuevoEncuentro"
+                    app2:srcCompat="@drawable/agregar_encuentro" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="300dp">
+
+                <TextView
+                    android:text="¿Quiénes participamos?"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/participantes_txt"
+                    android:textSize="24sp"
+                    android:gravity="center_vertical|center"
+                    android:textStyle="normal|bold"
+                    android:textColor="@color/color_e" />
+
+                <TextView
+                    android:text="Escoge la persona que desees conocer o el botón para agregar una."
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tipParticipante_txt"
+                    android:textStyle="normal|italic"
+                    android:textAlignment="center"
+                    android:textColor="@color/color_a"
+                    android:textSize="18sp"
+                    android:lineSpacingExtra="8sp" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerParticipantes_lst"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="3dp"
+                    android:layout_height="140dp" />
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:id="@+id/agregarPart2_img"
+                    android:layout_alignBottom="@+id/menuFotosVideos_ly"
+                    android:layout_alignParentEnd="true"
+                    android:layout_height="67dp"
+                    android:clickable="true"
+                    android:onClick="agregarNuevoParticipante"
+                    app2:srcCompat="@drawable/agregar_participante" />
+            </LinearLayout>
+
+        </LinearLayout>
 
     </LinearLayout>
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/barraBaja_ly">
+        android:layout_height="wrap_content"
+        android:id="@+id/barraBaja_ly"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true">
 
         <LinearLayout
             android:orientation="horizontal"
@@ -53,51 +222,41 @@
             android:id="@+id/barraBot_ly">
 
             <Button
-                android:text="@string/menu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/botonMenu_but"
                 android:layout_weight="1"
                 android:textSize="18sp"
-                android:onClick="abrirMenu" />
+                android:onClick="abrirMenu"
+                android:background="@drawable/menu_a" />
 
             <Button
-                android:text="@string/costureros_encuentros"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/botonCostureros_but"
                 android:layout_weight="1"
                 android:textSize="18sp"
-                android:onClick="abrirCostureros" />
+                android:onClick="abrirCostureros"
+                android:background="@drawable/menu_c" />
 
             <Button
-                android:text="@string/galeria"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/botonGalerias_but"
                 android:layout_weight="1"
                 android:textSize="18sp"
-                android:onClick="abrirGaleria" />
+                android:onClick="abrirGaleria"
+                android:background="@drawable/menu_b" />
 
             <Button
-                android:text="@string/proyecto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/botonProy_but"
                 android:layout_weight="1"
                 android:textSize="18sp"
-                android:onClick="abrirInfo" />
+                android:onClick="abrirInfo"
+                android:background="@drawable/menu_d" />
 
         </LinearLayout>
     </LinearLayout>
-
-    <ImageView
-        android:layout_width="67dp"
-        android:id="@+id/agregarCost2_img"
-        android:layout_alignBottom="@+id/menuFotosVideos_ly"
-        android:layout_alignParentEnd="true"
-        android:layout_height="67dp"
-        android:clickable="true"
-        android:onClick="agregarNuevoEncuentro"
-        app2:srcCompat="@drawable/agregar_rosa" />
 </RelativeLayout>
