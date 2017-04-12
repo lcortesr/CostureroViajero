@@ -8,6 +8,8 @@ import org.json.JSONObject;
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -17,6 +19,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 public class JSONParser {
     String charset = "UTF-8";
@@ -127,19 +131,82 @@ public class JSONParser {
             try {
                 urlObj = new URL(url);
                 conn = (HttpURLConnection) urlObj.openConnection();
-                conn.setDoOutput(true);
                 conn.setRequestMethod("POST");
+                conn.setUseCaches(false);
+                conn.setDoOutput(true);
+                conn.setDoInput(true);
                 conn.setRequestProperty("Authorization", basicAuth);
-                conn.setRequestProperty("Content-Type", "application/json");
-                conn.setRequestProperty("Accept", "application/json");
+                //conn.setRequestProperty("Content-Type", "application/json");
+
+                String twoHyphens = "--";
+                String boundary = "*****" + Long.toString(System.currentTimeMillis()) + "*****";
+                String lineEnd = "\r\n";
+
+                conn.setRequestProperty("Connection", "Keep-Alive");
+                conn.setRequestProperty("User-Agent", "Android Multipart HTTP Client 1.0");
+                conn.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + boundary);
+                conn.setRequestProperty("Accept", "*/*");
+                conn.setInstanceFollowRedirects(false);
                 conn.setReadTimeout(10000);
                 conn.setConnectTimeout(15000);
                 conn.connect();
-                wr = new DataOutputStream(conn.getOutputStream ());
-                wr.writeBytes(params.toString());
-                wr.flush ();
-                wr.close ();
+                String p="path";
+                String filepath=params.getString(p);
+                if(filepath!=null) {
+                    String[] q = filepath.split("/");
+                    int idx = q.length - 1;
+                    int bytesRead, bytesAvailable, bufferSize;
+                    byte[] buffer;
+                    int maxBufferSize = 1 * 1024 * 1024;
+
+                    wr = new DataOutputStream(conn.getOutputStream ());
+                    wr.writeBytes(twoHyphens + boundary + lineEnd);
+
+                    String filefield="path";
+                    String fileMimeType="path/jpg";
+
+                    File file = new File(filepath);
+                    FileInputStream fileInputStream = new FileInputStream(file);
+
+                    wr.writeBytes("Content-Disposition: form-data; name=\"" + filefield + "\"; filename=\"" + q[idx] + "\"" + lineEnd);
+                    wr.writeBytes(lineEnd);
+                    bytesAvailable = fileInputStream.available();
+                    bufferSize = Math.min(bytesAvailable, maxBufferSize);
+                    buffer = new byte[bufferSize];
+
+                    bytesRead = fileInputStream.read(buffer, 0, bufferSize);
+                    while (bytesRead > 0) {
+                        wr.write(buffer, 0, bufferSize);
+                        bytesAvailable = fileInputStream.available();
+                        bufferSize = Math.min(bytesAvailable, maxBufferSize);
+                        bytesRead = fileInputStream.read(buffer, 0, bufferSize);
+                    }
+
+                    wr.writeBytes(lineEnd);
+
+                    // Upload POST Data
+                    int keysCount=params.length();
+                    for(int k=0;k<keysCount;k++) {
+                        String key = params.keys().next();
+                        String value = params.getString(key);
+                        if(!key.equals("path")) {
+                            wr.writeBytes(twoHyphens + boundary + lineEnd);
+                            wr.writeBytes("Content-Disposition: form-data; name=\"" + key + "\"" + lineEnd);
+                            wr.writeBytes("Content-Type: text/plain" + lineEnd);
+                            wr.writeBytes(lineEnd);
+                            wr.writeBytes(value);
+                            wr.writeBytes(lineEnd);
+                        }
+                        params.remove(key);
+                    }
+
+                    wr.writeBytes(twoHyphens + boundary + twoHyphens + lineEnd);
+                    wr.flush();
+                    wr.close();
+                }
             } catch (IOException e) {
+                e.printStackTrace();
+            } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
@@ -165,9 +232,10 @@ public class JSONParser {
             //Receive the response from the server
             InputStream in, error;
             int status;
-            in = new BufferedInputStream(conn.getInputStream());
+            //in = new BufferedInputStream(conn.getInputStream());
             error = new BufferedInputStream(conn.getErrorStream());
-            BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+            //BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+            BufferedReader reader = new BufferedReader(new InputStreamReader(error));
             result = new StringBuilder();
             String line;
             while ((line = reader.readLine()) != null) {
